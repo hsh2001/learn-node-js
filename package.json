@@ -1,0 +1,21 @@
+{
+  "name": "learn-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "pm2 start main.js --watch --no-daemon",
+    "stop": "pm2 kill",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsh2001/learn-node-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsh2001/learn-node-js/issues"
+  },
+  "homepage": "https://github.com/hsh2001/learn-node-js#readme"
+}
