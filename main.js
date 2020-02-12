@@ -1,20 +1,9 @@
-const http = require('http');
-const fs = require('fs');
-const url = require('url');
+const express = require('express');
+const app = express();
 
-const app = http.createServer((request, response) => {
-    let requestURL = request.url;
-    const { id = 'index' } = url.parse(requestURL, true).query || {};
-
-    if (requestURL == '/favicon.ico') {
-      response.writeHead(404);
-      response.end();
-      return;
-    }
-
-    console.log(`/public/${id}.html`);
-    response.writeHead(200);
-    response.end(fs.readFileSync(__dirname + `/public/${id}.html`));
+app.get('/', (req, res) => { 
+  console.log("Hello user!");
+  res.send('Hello world!');
 });
 
-app.listen(3000);
+app.listen(3000, () => console.log("Listen port 3000..."));
