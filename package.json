@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/hsh2001/learn-node-js/issues"
   },
-  "homepage": "https://github.com/hsh2001/learn-node-js#readme"
+  "homepage": "https://github.com/hsh2001/learn-node-js#readme",
+  "devDependencies": {
+    "pm2": "^4.2.3"
+  }
 }
