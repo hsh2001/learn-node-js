@@ -1,9 +1,10 @@
 const express = require('express');
 const route = express.Router();
 
-route.get('/', (req, res) => { 
-  console.log("Hello user!");
-  res.send('Hello world!');
+route.get('/', (req, res) => {
+  res.render('index', {
+    name: "Express",
+  });
 });
 
 module.exports = route;
