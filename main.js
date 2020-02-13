@@ -1,16 +1,14 @@
 const express = require('express');
+
+const indexRoute = require('./routes/index');
+const testRoute = require('./routes/test');
+
 const app = express();
 
 app.use(express.static('./public'));
 
-app.get('/', (req, res) => { 
-  console.log("Hello user!");
-  res.send('Hello world!');
-});
-
-app.get('/test/error', (req, res, next) => {
-  next(new Error("test error!!!"));
-});
+app.use('/', indexRoute);
+app.use('/test', testRoute);
 
 app.use((err, req, res, next) => {
   console.error(err);
