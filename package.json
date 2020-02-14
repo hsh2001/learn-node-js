@@ -4,8 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "pm2 start main.js --watch --no-daemon",
-    "stop": "pm2 kill",
+    "start": "pm2 start main.js --watch --ignore-watch=\"public/** views/**\" --no-daemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
