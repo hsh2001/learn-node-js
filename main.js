@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 
 const testRoute = require('./routes/test');
@@ -9,6 +10,12 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views/pages'));
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'asdasdwe',
+  resave: false,
+  saveUninitialized: true,
+}));
+
 app.use((req, res, next) => {
   res.renderError = (errorCode) => {
     res.status(errorCode).render('error', { errorCode });
