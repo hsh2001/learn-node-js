@@ -1,5 +1,5 @@
-const express = require('express');
-const route = express.Router();
+const { Router } = require('express');
+const route = Router();
 
 route.get('/error', (req, res, next) => {
   next(new Error("test error!!!"));
