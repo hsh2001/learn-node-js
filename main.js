@@ -1,10 +1,19 @@
 const express = require('express');
 const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 const path = require('path');
+const mysql = require('promise-mysql');
+const mysqlOptions = require('./mysql-options.json');
 
 const testRoute = require('./routes/test');
 
 const app = express();
+
+(async function () {
+  const db = await mysql.createConnection(mysqlOptions);
+  const results = await db.query('SELECT * FROM topic');
+  console.log(results);
+})();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views/pages'));
@@ -14,6 +23,7 @@ app.use(session({
   secret: 'asdasdwe',
   resave: false,
   saveUninitialized: true,
+  store: new MySQLStore(mysqlOptions),
 }));
 
 app.use((req, res, next) => {
